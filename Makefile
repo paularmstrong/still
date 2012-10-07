@@ -7,7 +7,7 @@ tests := $(shell find ./tests -name '*.test.js')
 reporter = dot
 opts =
 test:
-	@node_modules/mocha/bin/mocha --reporter ${reporter} ${opts} ${tests}
+	@node_modules/mocha/bin/mocha --reporter ${reporter} --require should ${opts} ${tests}
 
 watch-tests:
 	@make test reporter=min opts="--watch ${opts}" tests=${tests}

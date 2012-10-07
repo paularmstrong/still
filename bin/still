@@ -1,0 +1,24 @@
+#! /usr/bin/env node
+
+var still = require('../index'),
+  optimist = require('optimist'),
+  argv,
+  url;
+
+argv = optimist
+  .usage('Usage: still [url] -o [path]')
+  .demand(['o'])
+  .describe('o', 'Output directory.')
+  .alias('o', 'out')
+  .describe('i', 'Copy path to output directory.')
+  .alias('i', 'include')
+  .argv;
+
+if (!argv._.length) {
+  optimist.showHelp();
+  return;
+}
+
+url = argv._[0];
+
+console.log('Done.');
