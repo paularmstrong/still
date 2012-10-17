@@ -10,8 +10,6 @@ argv = optimist
   .demand(['o'])
   .describe('o', 'Output directory.')
   .alias('o', 'out')
-  .describe('i', 'Copy path to output directory.')
-  .alias('i', 'include')
   .describe('e', 'Template Engine to use for rendering')
   .alias('e', 'engine')
   .default('e', 'swig')
