@@ -18,7 +18,14 @@
   "author": "Paul Armstrong <paul@paularmstrongdesigns.com>",
   "license": "MIT",
   "dependencies": {
-    "optimist": "~0.3.4"
+    "optimist": "~0.3.4",
+    "consolidate": "~0.4.0",
+    "findit": "~0.1.2",
+    "lodash": "~0.8.2",
+    "colors": "~0.6.0-1",
+    "swig": "~0.12.1",
+    "ejs": "~0.8.3",
+    "jade": "~0.27.6"
   },
   "devDependencies": {
     "mocha": "~1.6.0",
