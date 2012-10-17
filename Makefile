@@ -18,7 +18,7 @@ coverage:
 	# https://github.com/visionmedia/node-jscoverage
 	# The jscoverage npm module and original JSCoverage packages will not work
 	@jscoverage lib lib-cov
-	@STILL_COVERAGE=1 $(MAKE) test reporter=html-cov > ${out}
+	@STILL_COVERAGE=1 $(MAKE) test reporter=html-cov > tests/coverage.html
 	@rm -rd lib-cov
 	@echo
 	@echo "Built Report to ${out}"

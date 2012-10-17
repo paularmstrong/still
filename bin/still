@@ -1,3 +1,29 @@
 #!/usr/bin/env node
 
-var still = require('../index');
+var still = require('../'),
+  optimist = require('optimist');
+
+console.log(still);
+
+argv = optimist
+  .usage('Usage: still [path] -o [output path] [options]')
+  .demand(['o'])
+  .describe('o', 'Output directory.')
+  .alias('o', 'out')
+  .describe('i', 'Copy path to output directory.')
+  .alias('i', 'include')
+  .describe('e', 'Template Engine to use for rendering')
+  .alias('e', 'engine')
+  .default('e', 'swig')
+  .describe('encoding', 'File encoding (input and output)')
+  .default('encoding', 'utf-8')
+  .describe('v', 'Be verbose')
+  .alias('v', 'verbose')
+  .argv;
+
+if (!argv._.length) {
+  optimist.showHelp();
+  process.exit(1);
+}
+
+still.run(argv);
