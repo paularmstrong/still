@@ -3,3 +3,4 @@ lib-cov
 node_modules
 npm-debug.log
 tests/coverage.html
+tests/tmp

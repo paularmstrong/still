@@ -4,7 +4,7 @@ var fs = require('fs'),
 describe('Templates', function () {
 
   describe('Swig', function () {
-    var out = 'swigout';
+    var out = 'tests/tmp/swigout';
 
     it('renders', function (done) {
       still.run({
