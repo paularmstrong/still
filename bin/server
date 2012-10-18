@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 
-var still = require('../').build,
+var still = require('../').server,
   optimist = require('optimist');
 
 var argv = optimist
-  .usage('Usage: still [path] -o [output path] [options]')
-  .demand(['o'])
-  .describe('o', 'Output directory.')
-  .alias('o', 'out')
+  .usage('Usage: still-server [path] [options]')
   .describe('e', 'Template Engine to use for rendering')
   .alias('e', 'engine')
   .default('e', 'swig')
-  .describe('encoding', 'File encoding (input and output)')
-  .default('encoding', 'utf-8')
   .describe('v', 'Be verbose')
   .alias('v', 'verbose')
+  .describe('p', 'Server port')
+  .alias('p', 'port')
+  .default('p', '3000')
+  .describe('encoding', 'File encoding (input and output)')
+  .default('encoding', 'utf-8')
   .argv;
 
 if (!argv._.length) {
@@ -22,4 +22,4 @@ if (!argv._.length) {
   process.exit(1);
 }
 
-still.build(argv);
+still.run(argv);

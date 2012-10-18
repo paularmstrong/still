@@ -1,5 +1,7 @@
 var fs = require('fs'),
-  still = require('../');
+  still = require('../'),
+  build = still.build,
+  server = still.server;
 
 describe('Templates', function () {
 
@@ -7,7 +9,7 @@ describe('Templates', function () {
     var out = 'tests/tmp/swigout';
 
     it('renders', function (done) {
-      still.run({
+      build.run({
         _: [__dirname + '/templates/swig'],
         e: 'swig',
         o: out,

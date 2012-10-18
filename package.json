@@ -4,7 +4,8 @@
   "description": "A static website generator for node.js",
   "main": "index.js",
   "bin": {
-    "still": "bin/still"
+    "still": "bin/still",
+    "still-server": "bin/server"
   },
   "scripts": {
     "test": "make lint && make test"
@@ -18,20 +19,20 @@
   "author": "Paul Armstrong <paul@paularmstrongdesigns.com>",
   "license": "MIT",
   "dependencies": {
-    "optimist": "~0.3.4",
+    "colors": "~0.6",
     "consolidate": "~0.4.0",
-    "findit": "~0.1.2",
-    "lodash": "~0.8.2",
-    "colors": "~0.6.0-1",
-    "swig": "~0.12.1",
     "ejs": "~0.8.3",
+    "express": "~3.0",
+    "findit": "~0.1.2",
     "jade": "~0.27.6",
-    "mkdirp": "~0.3.4"
+    "lodash": "~0.8.2",
+    "mkdirp": "~0.3.4",
+    "optimist": "~0.3.4",
+    "swig": "~0.12.1"
   },
   "devDependencies": {
     "mocha": "~1.6.0",
     "nodelint": "~0.6.2",
-    "express": "~3.0",
     "should": "~1.2.0"
   }
 }

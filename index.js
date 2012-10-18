@@ -1,3 +1,4 @@
-module.exports = (process.env.STILL_COVERAGE)
-  ? require('./lib-cov/still')
-  : require('./lib/still');
+var dir = (process.env.STILL_COVERAGE) ? './lib-cov/' : './lib/';
+
+exports.build = require(dir + 'build');
+exports.server = require(dir + 'server');
