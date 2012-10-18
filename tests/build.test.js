@@ -1,5 +1,5 @@
 var child_process = require('child_process'),
-  still = require('../').build;
+  still = require('../').build.build;
 
 describe('Options', function () {
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var still = require('../').server,
+var server = require('../').server,
   optimist = require('optimist');
 
 var argv = optimist
@@ -22,4 +22,4 @@ if (!argv._.length) {
   process.exit(1);
 }
 
-still.run(argv);
+server.run(argv);

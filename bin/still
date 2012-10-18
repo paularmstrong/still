@@ -13,8 +13,8 @@ var argv = optimist
   .default('e', 'swig')
   .describe('encoding', 'File encoding (input and output)')
   .default('encoding', 'utf-8')
-  .describe('v', 'Be verbose')
-  .alias('v', 'verbose')
+  .describe('verbose', 'Verbosity: 0 = silent, 1 = default, 2 = warnings, 3 = debug')
+  .default('verbose', 1)
   .argv;
 
 if (!argv._.length) {
