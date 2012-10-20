@@ -28,7 +28,7 @@
     "lodash": "~0.8.2",
     "mkdirp": "~0.3.4",
     "optimist": "~0.3.4",
-    "swig": "~0.12.1"
+    "swig": "~0.13"
   },
   "devDependencies": {
     "mocha": "~1.6.0",

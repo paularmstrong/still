@@ -42,3 +42,7 @@ describe('Options', function () {
   });
 
 });
+
+describe('Static Files', function () {
+  it('are copied from input directory to output');
+});
