@@ -5,15 +5,19 @@ var still = require('../').build,
 
 var argv = optimist
   .usage('Usage: still [path] -o [output path] [options]')
+  .describe({
+    o: 'Output directory',
+    e: 'Template engine',
+    i: 'Ignore path',
+    encoding: 'File encoding (input and output)',
+    verbose: 'Verbosity mode: 0 = silent, 1 = default, 2 = warnings, 3 = debug'
+  })
   .demand(['o'])
-  .describe('o', 'Output directory.')
   .alias('o', 'out')
-  .describe('e', 'Template Engine to use for rendering')
   .alias('e', 'engine')
+  .alias('i', 'ignore')
   .default('e', 'swig')
-  .describe('encoding', 'File encoding (input and output)')
   .default('encoding', 'utf-8')
-  .describe('verbose', 'Verbosity: 0 = silent, 1 = default, 2 = warnings, 3 = debug')
   .default('verbose', 1)
   .argv;
 

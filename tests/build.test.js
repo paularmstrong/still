@@ -14,6 +14,12 @@ describe('Options', function () {
     it('Can be `ejs`');
   });
 
+  describe('i, ignore', function () {
+    it('ignores with a single string');
+    it('ignores multiple if declared');
+    it('accepts regular expressions');
+  });
+
   describe('encoding', function () {
     it('Defaults to utf-8');
   });

@@ -5,15 +5,17 @@ var server = require('../').server,
 
 var argv = optimist
   .usage('Usage: still-server [path] [options]')
-  .describe('e', 'Template Engine to use for rendering')
+  .describe({
+    e: 'Template engine',
+    p: 'Server port',
+    encoding: 'File encoding (input and output)',
+    verbose: 'Verbosity mode: 0 = silent, 1 = default, 2 = warnings, 3 = debug'
+  })
   .alias('e', 'engine')
-  .default('e', 'swig')
-  .describe('v', 'Be verbose')
   .alias('v', 'verbose')
-  .describe('p', 'Server port')
   .alias('p', 'port')
-  .default('p', '3000')
-  .describe('encoding', 'File encoding (input and output)')
+  .default('e', 'swig')
+  .default('p', 3000)
   .default('encoding', 'utf-8')
   .argv;
 
