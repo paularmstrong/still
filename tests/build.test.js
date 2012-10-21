@@ -27,16 +27,16 @@ describe('Options', function () {
   describe('v, verbose', function () {
     it('defaults to 0');
 
-    describe('-1', function () {
+    describe('0', function () {
       it('is silent');
     });
-    describe('0', function () {
+    describe('1', function () {
       it('only logs errors and build information');
     });
-    describe('1', function () {
+    describe('2', function () {
       it('logs warnings');
     });
-    describe('2', function () {
+    describe('3', function () {
       it('logs everything');
     });
   });
