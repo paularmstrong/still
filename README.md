@@ -8,11 +8,52 @@ Because you know HTML, Git is your content management system. All that you reall
 Usage
 -----
 
+_Still_ comes with two utilities: `still` and `still-server`. When you're in development mode, making changes, and testing: use `still-server`. When you're ready to push your site live, build it to static files using `still`.
+
+_Still_ operates by recursively walking over your template directory, finding every `.html` file, and building it with optional related `.json` files that you provide, if any.
+
 ### Getting Started
 
 #### Data
 
-For every `*.html` file found, _Still_ will look to see if there is a `.json` file of the same name in the same directory. If there is, that file will be used as the data context for the rendered template.
+For every `*.html` file found, _Still_ will look to see if there is a `.json` file of the same name in the same directory. If the file exists, it will be used as _local data_ context for the rendered template.
+
+At the same time, _Still_ will also look for a `.json` file for the entire directory. If that file exists, your _local data_ will be applied over this, and the resulting data object used for the rendered template.
+
+#### Example Hierarchy
+
+    site
+    ├── index.html
+    ├── about.json
+    ├── about
+    |   ├── index.html
+    |   ├── index.json
+    |   └── contact.html
+    └── terms.html
+
+In the above example:
+
+* Notice that all `.json` files are optional.
+* `site/index.html` will be rendered with no data.
+* `site/about/index.html` will be rendered with `site/about/index.json` applied atop `site/about.json`.
+* `site/about/contact.html` will be rendered with `site/about.json`.
+
+##### Output Hierarchy
+
+_Still_ will slightly modify the hierarchy of your files in order to provide "clean URLs" for you. This means that you should always reference all pages without `.html` extensions and assume a trailing `/` instead.
+
+Building the above example will output the following:
+
+    site
+    ├── index.html
+    ├── about
+    |   ├── index.html
+    |   └── contact
+    |       └── index.html
+    └── terms
+        └── index.html
+
+This means that a URL to the `contact` page should be `/about/contact/`.
 
 ### Building Your Site
 
@@ -27,7 +68,7 @@ For every `*.html` file found, _Still_ will look to see if there is a `.json` fi
     * Template engine
     * [default: "swig"]
 * `-i`, `--ignore`
-    * Ignore path
+    * Ignore path or regular expression
 * `--encoding`
     * File encoding (input and output)
     * [default: "utf-8"]
