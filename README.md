@@ -21,22 +21,20 @@ Install your desired template engine at the same location (globally or locally) 
 
     npm install -g swig
 
-Usage
------
+Getting Started
+---------------
 
 _Still_ comes with two utilities: `still` and `still-server`. When you're in development mode, making changes, and testing: use `still-server`. When you're ready to push your site live, build it to static files using `still`.
 
 _Still_ operates by recursively walking over your template directory, finding every `.html` file, and building it with optional related `.json` files that you provide, if any.
 
-### Getting Started
-
-#### Data
+### Data
 
 For every `*.html` file found, _Still_ will look to see if there is a `.json` file of the same name in the same directory. If the file exists, it will be used as _local data_ context for the rendered template.
 
 At the same time, _Still_ will also look for a `.json` file for the entire directory. If that file exists, your _local data_ will be applied over this, and the resulting data object used for the rendered template.
 
-#### Example Hierarchy
+### Example Hierarchy
 
     site
     ├── index.html
@@ -71,11 +69,12 @@ Building the above example will output the following:
 
 This means that a URL to the `contact` page should be `/about/contact/`.
 
-### Building Your Site
+`still`: Building Your Site
+---------------------------
 
     still [path] -o [output path] [options]
 
-#### Options:
+### Options:
 
 * `-o`, `--out`
     * Output directory
@@ -96,7 +95,8 @@ This means that a URL to the `contact` page should be `/about/contact/`.
         * 3 = debug
     * [default: 1]
 
-### Development and Testing
+`still-server`: Development and Testing
+---------------------------------------
 
     still-server [path] [options]
 
