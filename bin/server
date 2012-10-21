@@ -12,7 +12,6 @@ var argv = optimist
     verbose: 'Verbosity mode: 0 = silent, 1 = default, 2 = warnings, 3 = debug'
   })
   .alias('e', 'engine')
-  .alias('v', 'verbose')
   .alias('p', 'port')
   .default('e', 'swig')
   .default('p', 3000)
