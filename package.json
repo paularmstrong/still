@@ -44,5 +44,8 @@
     "nodelint": "0.6.2",
     "should": "1.2.0"
   },
+  "engines": {
+    "node": ">=0.8.0"
+  },
   "preferGlobal": true
 }
