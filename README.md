@@ -1,4 +1,4 @@
-Still
+Still [![Build Status](https://secure.travis-ci.org/paularmstrong/still.png)](http://travis-ci.org/paularmstrong/still)
 =====
 
 _Still_ is a utility to help you manage your small site.
