@@ -3,11 +3,13 @@ all:
 	@chmod -R +x .git/hooks/
 	@npm install -d
 
+clean:
+	@rm -rf tests/tmp
+
 tests := $(shell find ./tests -name '*.test.js')
 reporter = dot
 opts =
-test:
-	@rm -rf tests/tmp
+test: clean
 	@node_modules/mocha/bin/mocha --reporter ${reporter} --require should ${opts} ${tests}
 
 watch-tests:

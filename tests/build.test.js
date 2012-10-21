@@ -1,8 +1,10 @@
 var _ = require('lodash'),
+  testutils = require('./testutils'),
   fs = require('fs'),
   still = require('../').build.build,
   path = __dirname + '/templates/swig',
-  out = 'tests/tmp/out',
+  out = 'tests/tmp',
+  index = __dirname + '/tmp/index.html',
   options = {
     _: [path],
     o: out,
@@ -13,10 +15,12 @@ var _ = require('lodash'),
 
 describe('Options', function () {
 
+  afterEach(testutils.teardown);
+
   describe('o, out', function () {
     it('Can output to a local path', function (done) {
       still(options, function () {
-        fs.exists(__dirname + '/tmp/out/index.html', function (exists) {
+        fs.exists(index, function (exists) {
           exists.should.eql(true);
           done();
         });
@@ -24,8 +28,8 @@ describe('Options', function () {
     });
 
     it('Can output to an absolute path', function (done) {
-      still(_.defaults({ o: __dirname + '/tmp/abs'}, options), function () {
-        fs.exists(__dirname + '/tmp/abs/index.html', function (exists) {
+      still(_.extend(options, { o: __dirname + '/tmp' }), function () {
+        fs.exists(index, function (exists) {
           exists.should.eql(true);
           done();
         });
@@ -35,14 +39,39 @@ describe('Options', function () {
 
   describe('e, engine', function () {
     it('Defaults to `swig`');
-    it('Can be `jade`');
-    it('Can be `ejs`');
   });
 
   describe('i, ignore', function () {
-    it('ignores with a single string');
-    it('ignores multiple if declared');
-    it('accepts regular expressions');
+
+    it('ignores with a single string', function (done) {
+      still(_.extend({ 'i': 'index' }, options), function () {
+        fs.exists(index, function (exists) {
+          exists.should.eql(false);
+          done();
+        });
+      });
+    });
+
+    it('ignores multiple if declared', function (done) {
+      still(_.extend({ 'i': ['index', 'layout'] }, options), function () {
+        fs.exists(index, function (exists) {
+          exists.should.eql(false);
+          fs.exists(__dirname + '/tmp/layout/index.html', function (exists) {
+            exists.should.eql(false);
+            done();
+          });
+        });
+      });
+    });
+
+    it('accepts regular expressions', function (done) {
+      still(_.extend({ 'i': '/in[dex]{3}\\.html$/' }, options), function () {
+        fs.exists(index, function (exists) {
+          exists.should.eql(false);
+          done();
+        });
+      });
+    });
   });
 
   describe('encoding', function () {
