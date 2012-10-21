@@ -98,5 +98,15 @@ describe('Options', function () {
 });
 
 describe('Static Files', function () {
-  it('are copied from input directory to output');
+
+  afterEach(testutils.teardown);
+
+  it.skip('are copied from input directory to output', function (done) {
+    still(options, function () {
+      fs.exists(__dirname + '/tmp/foo.txt', function (exists) {
+        exists.should.eql(true);
+        done();
+      });
+    });
+  });
 });
