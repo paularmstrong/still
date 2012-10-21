@@ -8,7 +8,7 @@ var argv = optimist
   .describe({
     o: 'Output directory',
     e: 'Template engine',
-    i: 'Ignore path',
+    i: 'Ignore path or regular expression',
     encoding: 'File encoding (input and output)',
     verbose: 'Verbosity mode: 0 = silent, 1 = default, 2 = warnings, 3 = debug'
   })
