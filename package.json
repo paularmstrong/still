@@ -32,16 +32,14 @@
   "dependencies": {
     "colors": "~0.6",
     "consolidate": "~0.4",
-    "ejs": "~0.8",
     "express": "~3.0",
     "findit": "~0.1",
-    "jade": "~0.27",
     "lodash": "~0.8",
     "mkdirp": "~0.3",
-    "optimist": "~0.3",
-    "swig": "~0.13"
+    "optimist": "~0.3"
   },
   "devDependencies": {
+    "swig": "~0.13",
     "mocha": "1.6.0",
     "nodelint": "0.6.2",
     "should": "1.2.0"

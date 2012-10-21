@@ -5,6 +5,22 @@ _Still_ is a utility to help you manage your small site.
 
 Because you know HTML, Git is your content management system. All that you really need is something to manage your templates. That's what _Still_ is for.
 
+Installation
+------------
+
+    npm install -g still
+
+Still is a command-line utility. It's preferred that you install it globally, though it will still work anywhere you like.
+
+Supported Template Engines
+--------------------------
+
+_Still_ supports any template engine that [consolidate.js](https://github.com/visionmedia/consolidate.js/blob/master/Readme.md) supports. However, since you likely only use one or two of them, none of them are included by default.
+
+Install your desired template engine at the same location (globally or locally) that you installed _Still_
+
+    npm install -g swig
+
 Usage
 -----
 
