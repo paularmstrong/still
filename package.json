@@ -4,11 +4,12 @@
   "description": "A static site generator built with node.js",
   "main": "index.js",
   "bin": {
-    "still": "bin/still",
-    "still-server": "bin/server"
+    "still": "./bin/still",
+    "still-server": "./bin/server"
   },
   "scripts": {
-    "test": "make lint && make test"
+    "test": "make lint && make test",
+    "prepublish": "make clean && npm prune"
   },
   "repository": {
     "type": "git",
@@ -19,24 +20,31 @@
     "express",
     "html"
   ],
-  "author": "Paul Armstrong <paul@paularmstrongdesigns.com>",
-  "license": "MIT",
+  "author": {
+    "name": "Paul Armstrong",
+    "email": "<paul@paularmstrongdesigns.com>",
+    "url": "http://paularmstrongdesigns.com"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/paularmstrong/still/raw/master/LICENSE"
+  },
   "dependencies": {
     "colors": "~0.6",
-    "consolidate": "~0.4.0",
-    "ejs": "~0.8.3",
+    "consolidate": "~0.4",
+    "ejs": "~0.8",
     "express": "~3.0",
-    "findit": "~0.1.2",
-    "jade": "~0.27.6",
-    "lodash": "~0.8.2",
-    "mkdirp": "~0.3.4",
-    "optimist": "~0.3.4",
+    "findit": "~0.1",
+    "jade": "~0.27",
+    "lodash": "~0.8",
+    "mkdirp": "~0.3",
+    "optimist": "~0.3",
     "swig": "~0.13"
   },
   "devDependencies": {
-    "mocha": "~1.6.0",
-    "nodelint": "~0.6.2",
-    "should": "~1.2.0"
+    "mocha": "1.6.0",
+    "nodelint": "0.6.2",
+    "should": "1.2.0"
   },
   "preferGlobal": true
 }
