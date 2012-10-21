@@ -1,7 +1,7 @@
 {
   "name": "still",
   "version": "0.0.0",
-  "description": "A static website generator for node.js",
+  "description": "A static site generator built with node.js",
   "main": "index.js",
   "bin": {
     "still": "bin/still",
