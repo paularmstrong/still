@@ -1,9 +1,12 @@
 var fs = require('fs'),
   still = require('../'),
+  testutils = require('./testutils'),
   build = still.build.build,
   server = still.server;
 
 describe('Templates', function () {
+
+  afterEach(testutils.teardown);
 
   describe('Swig', function () {
     var out = 'tests/tmp/swigout';

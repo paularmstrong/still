@@ -101,8 +101,8 @@ describe('Static Files', function () {
 
   afterEach(testutils.teardown);
 
-  it.skip('are copied from input directory to output', function (done) {
-    still(options, function () {
+  it('are copied from input directory to output', function (done) {
+    still(options, function (err) {
       fs.exists(__dirname + '/tmp/foo.txt', function (exists) {
         exists.should.eql(true);
         done();
