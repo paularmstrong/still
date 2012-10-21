@@ -7,6 +7,7 @@ tests := $(shell find ./tests -name '*.test.js')
 reporter = dot
 opts =
 test:
+	@rm -rf tests/tmp
 	@node_modules/mocha/bin/mocha --reporter ${reporter} --require should ${opts} ${tests}
 
 watch-tests:

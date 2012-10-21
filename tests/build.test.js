@@ -1,11 +1,36 @@
-var child_process = require('child_process'),
-  still = require('../').build.build;
+var _ = require('lodash'),
+  fs = require('fs'),
+  still = require('../').build.build,
+  path = __dirname + '/templates/swig',
+  out = 'tests/tmp/out',
+  options = {
+    _: [path],
+    o: out,
+    e: 'swig',
+    encoding: 'utf-8',
+    verbose: 0
+  };
 
 describe('Options', function () {
 
   describe('o, out', function () {
-    it('Can output to a local path');
-    it('Can output to an absolute path');
+    it('Can output to a local path', function (done) {
+      still(options, function () {
+        fs.exists(__dirname + '/tmp/out/index.html', function (exists) {
+          exists.should.eql(true);
+          done();
+        });
+      });
+    });
+
+    it('Can output to an absolute path', function (done) {
+      still(_.defaults({ o: __dirname + '/tmp/abs'}, options), function () {
+        fs.exists(__dirname + '/tmp/abs/index.html', function (exists) {
+          exists.should.eql(true);
+          done();
+        });
+      });
+    });
   });
 
   describe('e, engine', function () {
