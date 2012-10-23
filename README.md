@@ -108,6 +108,8 @@ This means that a URL to the `contact` page should be `/about/contact/`.
 * `-p`, `--port`
     * Server port
     * [default: 3000]
+* `-o`, `--open`
+    * Open your site in a web browser
 * `--encoding`
     * File encoding (input and output)
     * [default: "utf-8"]
