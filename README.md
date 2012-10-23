@@ -110,6 +110,9 @@ This means that a URL to the `contact` page should be `/about/contact/`.
     * [default: 3000]
 * `-o`, `--open`
     * Open your site in a web browser
+* `--err`
+    * Relative path to error 404 page
+    * [default: 'error/404.html']
 * `--encoding`
     * File encoding (input and output)
     * [default: "utf-8"]
