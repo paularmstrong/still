@@ -1,4 +1,12 @@
 
+0.0.3 / 2012-10-24
+==================
+
+  * **Added** Use -l option to create symbolic links
+  * **Changed** if error reading the json data, ignore it
+  * **Added** render error pages at error/<code>
+  * **Added** Use -o to pen site on server run
+
 0.0.2 / 2012-10-21
 ==================
 
