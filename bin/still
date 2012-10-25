@@ -9,6 +9,7 @@ var argv = optimist
     o: 'Output directory',
     e: 'Template engine',
     i: 'Ignore path or regular expression',
+    l: 'Create symbolic links to non-template files instead of copying them',
     encoding: 'File encoding (input and output)',
     verbose: 'Verbosity mode: 0 = silent, 1 = default, 2 = warnings, 3 = debug'
   })
@@ -16,6 +17,7 @@ var argv = optimist
   .alias('o', 'out')
   .alias('e', 'engine')
   .alias('i', 'ignore')
+  .alias('l', 'link')
   .default('e', 'swig')
   .default('encoding', 'utf-8')
   .default('verbose', 1)

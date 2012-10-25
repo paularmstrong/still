@@ -1,10 +1,12 @@
 var _ = require('lodash'),
+  should = require('should'),
   testutils = require('./testutils'),
   fs = require('fs'),
   still = require('../').build.build,
   path = __dirname + '/templates/swig',
   out = 'tests/tmp',
   index = __dirname + '/tmp/index.html',
+  foo = __dirname + '/tmp/foo.txt',
   options = {
     _: [path],
     o: out,
@@ -74,6 +76,17 @@ describe('Options', function () {
     });
   });
 
+  describe('l, link', function () {
+    it('Creates symlinks when enabled', function (done) {
+      still(_.extend(options, { l: true }), function () {
+        fs.lstat(foo, function (err, stat) {
+          should.ok(stat.isSymbolicLink());
+          done();
+        });
+      });
+    });
+  });
+
   describe('encoding', function () {
     it('Defaults to utf-8');
   });
@@ -103,7 +116,7 @@ describe('Static Files', function () {
 
   it('are copied from input directory to output', function (done) {
     still(options, function (err) {
-      fs.exists(__dirname + '/tmp/foo.txt', function (exists) {
+      fs.exists(foo, function (exists) {
         exists.should.eql(true);
         done();
       });

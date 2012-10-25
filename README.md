@@ -84,6 +84,8 @@ This means that a URL to the `contact` page should be `/about/contact/`.
     * [default: "swig"]
 * `-i`, `--ignore`
     * Ignore path or regular expression
+* `-l`, `--link`
+    * Create symbolic links to non-template files instead of copying them
 * `--encoding`
     * File encoding (input and output)
     * [default: "utf-8"]
