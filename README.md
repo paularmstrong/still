@@ -69,6 +69,18 @@ Building the above example will output the following:
 
 This means that a URL to the `contact` page should be `/about/contact/`.
 
+##### Error Pages
+
+The still server expects that your error documents be located at `/error/{status_code}.html` or `/error/{status_code}/index.html`
+
+For example:
+
+    site
+    ├── error
+        ├── 404.html
+        └── 500
+            └── index.html
+
 `still`: Building Your Site
 ---------------------------
 
