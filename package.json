@@ -1,6 +1,6 @@
 {
   "name": "still",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A static site generator built with node.js",
   "main": "index.js",
   "bin": {
