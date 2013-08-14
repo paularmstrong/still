@@ -43,7 +43,7 @@
     "opener": "~1.3"
   },
   "devDependencies": {
-    "swig": "~0.13",
+    "swig": "~1",
     "mocha": "1.6.0",
     "nodelint": "0.6.2",
     "should": "1.2.0"
