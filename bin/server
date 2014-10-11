@@ -10,6 +10,7 @@ var argv = optimist
     e: 'Template engine',
     p: 'Server port',
     o: 'Open your site in a web browser',
+    l: 'Enable livereload',
     err: 'Relative path to error 404 page',
     encoding: 'File encoding (input and output)',
     verbose: 'Verbosity mode: 0 = silent, 1 = default, 2 = warnings, 3 = debug'
@@ -17,6 +18,7 @@ var argv = optimist
   .alias('e', 'engine')
   .alias('p', 'port')
   .alias('o', 'open')
+  .alias('l', 'livereload')
   .default('e', 'swig')
   .default('p', 3000)
   .default('err', 'error/404.html')
